@@ -1,5 +1,5 @@
 {
-    "name": "nova-cards/SystemInformationCard",
+    "name": "nova-cards/system-information-card",
     "description": "A Laravel Nova card.",
     "keywords": [
         "laravel",
