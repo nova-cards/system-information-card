@@ -1,18 +1,18 @@
-# Nova Rating-Card
+# Nova SystemInformation-Card
 Simple Laravel Nova Card for displaying some useful information about disk-space, memory, loadavg, uptime and system time. 
 
 ## Installation
 
 You can install the package in to a Laravel app that uses Nova via composer:
 ```
-composer require nova-cards/rating-card
+composer require nova-cards/system-information-card
 ```
 
 ## Usage:
 ```php
 public function cards() {
     return [
-	new RatingCard('Your Avg Rating', 10, 'App\Movie', 'rating'),
+	new SystemInformationCard(),
     ];
 }
 ```
