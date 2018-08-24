@@ -32,6 +32,7 @@
 <script>
 
     let moment = require('moment');
+
 export default {
     props: {
         card: {},
@@ -63,6 +64,11 @@ export default {
     },
 
     methods: {
+
+        moment: function () {
+            return moment();
+        },
+
         refreshStatsPeriodically() {
             this.loading = true;
             Promise.all([
