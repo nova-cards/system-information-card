@@ -28,16 +28,16 @@ class SystemInformation
         {
             $content = file_get_contents('/proc/meminfo');
             preg_match('/^MemTotal: \s*(\d*)/m', $content, $matches);
-            $total = $this->formatBytes($matches[1] * 1024);
+            $total = $matches[1] * 1024;
             preg_match('/^MemFree: \s*(\d*)/m', $content, $matches);
-            $free = $this->formatBytes($matches[1] * 1024);
-            preg_match('/^MemAvailable: \s*(\d*)/m', $content, $matches);
-            $used = $this->formatBytes($matches[1] * 1024);
+            $free = $matches[1] * 1024;
+//            preg_match('/^MemAvailable: \s*(\d*)/m', $content, $matches);
+//            $used = $this->formatBytes($matches[1] * 1024);
 
             return [
-                'total' => $total,
-                'free' => $free,
-                'used' => $used
+                'total' => $this->formatBytes($total),
+                'free' => $this->formatBytes($free),
+                'used' => $this->formatBytes($total - $free)
             ];
         }
         return [
