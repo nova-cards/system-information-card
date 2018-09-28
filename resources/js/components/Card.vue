@@ -1,5 +1,5 @@
 <template>
-    <loading-card :loading="loading" class="metric px-6 py-4 relative">
+    <loading-card :loading="componentLoading" class="metric px-6 py-4 relative">
         <div class="flex mb-3">
             <h3 class="mr-2 text-base text-80 font-bold">{{ card.name }}</h3>
         </div>
@@ -41,6 +41,7 @@ export default {
 
     data() {
         return {
+            componentLoading: this.loading,
             avg: 0,
             mem: {
                 free: 0,
@@ -70,11 +71,11 @@ export default {
         },
 
         refreshStatsPeriodically() {
-            this.loading = true;
+            this.componentLoading = true;
             Promise.all([
                 this.loadStats(),
             ]).then(() => {
-                this.loading = false;
+                this.componentLoading = false;
 
                 this.timeout = setTimeout(() => {
                     this.refreshStatsPeriodically(false);
